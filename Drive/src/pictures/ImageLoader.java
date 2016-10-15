@@ -39,7 +39,7 @@ public class ImageLoader {
         try{
         
             this.backGameOver   = ImageIO.read(getClass().getClassLoader().getResource("pictures/files/GameOver.jpg"));
-            this.backHighscore  = ImageIO.read(getClass().getClassLoader().getResource("pictures/files/Highscore.png"));
+            this.backHighscore  = ImageIO.read(getClass().getClassLoader().getResource("pictures/files/Highscore.jpg"));
             this.backInstruct   = ImageIO.read(getClass().getClassLoader().getResource("pictures/files/Instruction.jpg"));
             this.backMenue      = ImageIO.read(getClass().getClassLoader().getResource("pictures/files/Menue.jpg"));
             this.backPause      = ImageIO.read(getClass().getClassLoader().getResource("pictures/files/Pause.jpg"));

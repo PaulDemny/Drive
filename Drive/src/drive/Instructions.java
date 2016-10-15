@@ -27,7 +27,8 @@ public class Instructions extends javax.swing.JFrame implements ActionListener{
      */
     public Instructions() {
         this.loader = ImageLoader.getInstance();
-        //this.setContentPane(new JLabel(new ImageIcon(loader.getImage(Pictures.Normal))));
+        this.setUndecorated(true);
+        this.setContentPane(new JLabel(new ImageIcon(loader.getImage(Pictures.Instruction))));
         this.setResizable(false);
         initComponents();
         this.setSize(1500, 1000);

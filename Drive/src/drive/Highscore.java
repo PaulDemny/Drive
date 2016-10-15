@@ -39,7 +39,7 @@ public class Highscore extends javax.swing.JFrame implements ActionListener{
     public Highscore(){
         this.setUndecorated(true);
         this.loader = ImageLoader.getInstance();
-        //this.setContentPane(new JLabel(new ImageIcon(loader.getImage(Pictures.Normal))));
+        this.setContentPane(new JLabel(new ImageIcon(loader.getImage(Pictures.Highscore))));
         this.initComponents();
         this.init();
     }
@@ -103,8 +103,8 @@ public class Highscore extends javax.swing.JFrame implements ActionListener{
         close.setText("Close");
         close.setBorderPainted(false);
 
-        jLabel1.setFont(new java.awt.Font("Wide Latin", 3, 60)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel1.setFont(new java.awt.Font("Brush Script Std", 1, 150)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 102, 102));
         jLabel1.setText("Highscore");
 
         highscoreView.setText("Highscore");
@@ -114,26 +114,27 @@ public class Highscore extends javax.swing.JFrame implements ActionListener{
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(416, 416, 416)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(161, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap(828, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(highscoreView, javax.swing.GroupLayout.PREFERRED_SIZE, 1170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(highscoreView, javax.swing.GroupLayout.PREFERRED_SIZE, 1170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(88, 88, 88))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(68, 68, 68))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(132, 132, 132)
-                .addComponent(highscoreView, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(highscoreView, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                 .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
