@@ -30,7 +30,7 @@ public class Menue extends javax.swing.JFrame implements ActionListener{
         this.setUndecorated(true);
         this.setSize(1500, 1000);
         this.setResizable(false);
-        //this.setContentPane(new JLabel(new ImageIcon(loader.getImage(Pictures.Normal))));
+        this.setContentPane(new JLabel(new ImageIcon(loader.getImage(Pictures.Menue))));
         this.initComponents();
         this.init();
     }
@@ -64,30 +64,34 @@ public class Menue extends javax.swing.JFrame implements ActionListener{
         highscore.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         highscore.setText("Highscore");
 
-        jLabel1.setFont(new java.awt.Font("Century", 1, 200)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Brush Script Std", 1, 300)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 102, 102));
         jLabel1.setText("Drive");
+        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(648, 648, 648)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(highscore, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
-                    .addComponent(anleitung, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(spielen, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(schließen, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(597, 597, 597))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(399, 399, 399)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1664, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(465, 465, 465)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(highscore, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(anleitung, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(spielen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(schließen, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(spielen, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(anleitung, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -95,7 +99,7 @@ public class Menue extends javax.swing.JFrame implements ActionListener{
                 .addComponent(highscore, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(schließen, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(116, 116, 116))
+                .addGap(48, 48, 48))
         );
 
         spielen.getAccessibleContext().setAccessibleDescription("");
@@ -107,14 +111,6 @@ public class Menue extends javax.swing.JFrame implements ActionListener{
      *  inits the form
      */
     public void init(){
-        this.loader = pictures.ImageLoader.getInstance();
-        icon = loader.getImageIcon(Pictures);
-//        dino = new JLabel(icon);
-//        dino.setBounds(100, 500, icon.getIconWidth(), icon.getIconHeight());
-//        this.add(dino);
-//        dino = new JLabel(icon);
-//        dino.setBounds(this.getWidth() - icon.getIconWidth() - 100, 500, icon.getIconWidth(), icon.getIconHeight());
-//        this.add(dino);
         player = new music.MP3Player("music/files/Call.mp3");
         player.play();
         this.spielen.addActionListener(this);

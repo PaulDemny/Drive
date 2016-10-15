@@ -6,8 +6,9 @@
 package pictures;
 
 /**
- * state machine flas
+ * state machine flag
  * @author Paul
  */
 public enum Pictures {
+    Menue, Highscore, Instruction, Pause, GameOver
 }
