@@ -55,7 +55,7 @@ public class Highscore extends javax.swing.JFrame implements ActionListener{
         this.place = 1;
         this.setSize(1500, 1000);
         this.setResizable(false);
-        this.player = new MP3Player("music/files/Gold.mp3");
+        this.player = new MP3Player("music/files/Highscore.mp3");
         this.player.play();
         this.connect = null;
         this.order = null;
@@ -73,7 +73,6 @@ public class Highscore extends javax.swing.JFrame implements ActionListener{
                 this.place++;
             }
             this.output = this.output.concat("</html>");
-            System.out.println(this.output);
             highscoreView.setLocation(750, 100);
             
             highscoreView.setFont(new Font(Font.MONOSPACED, Font.BOLD, 45));
@@ -99,14 +98,17 @@ public class Highscore extends javax.swing.JFrame implements ActionListener{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        close.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        close.setBackground(new java.awt.Color(51, 0, 51));
+        close.setFont(new java.awt.Font("Brush Script Std", 1, 48)); // NOI18N
+        close.setForeground(new java.awt.Color(255, 51, 153));
         close.setText("Close");
         close.setBorderPainted(false);
 
         jLabel1.setFont(new java.awt.Font("Brush Script Std", 1, 150)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 102, 102));
+        jLabel1.setForeground(new java.awt.Color(255, 51, 153));
         jLabel1.setText("Highscore");
 
+        highscoreView.setForeground(new java.awt.Color(255, 51, 153));
         highscoreView.setText("Highscore");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

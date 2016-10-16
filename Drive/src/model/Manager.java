@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.TimerTask;
-import main.IObserver;
+import drive.IObserver;
 import model.structure.Names;
 import model.structure.Hero;
 import pictures.Pictures;
@@ -28,10 +28,9 @@ public class Manager{
     private static Manager manager = new Manager();
     private FigureFactory factory;
     private ImageLoader loader;
-    private Hero dino;
+    private Hero hero;
     private Timer managerTime;
     private Timer enemyTime;
-    private Timer delayJump;
     private TimerTask task;
     private TimerTask passsive;
     private int gameVelocity;
@@ -40,8 +39,6 @@ public class Manager{
     private List <IObserver> observers;
     private Rectangle backRect;
     private int level;
-    private boolean kolissionFlag;
-    private volatile boolean delayFlag;
     private Random rnd;
     private int levelIncrement;
     private int score;
@@ -59,18 +56,15 @@ public class Manager{
         this.factory         = FigureFactory.getInstance();
         this.loader          = ImageLoader.getInstance();
         this.rnd             = new Random();
-        this.gameVelocity    = 15;
+        this.gameVelocity    = 20;
         this.intervallCreate = 30;
-        this.level           = 15;
+        this.level           = 1;
         this.levelIncrement  = 0;
         this.score           = 0;
-        this.dino            = (Hero) factory.factFigure(Names.Names.Dino, this.gameVelocity);
-        this.delayJump       = new Timer();
+        this.hero            = (Hero) factory.factFigure(Names.Hero, this.gameVelocity, 0);
         this.enemies         = new ArrayList <>();
         this.observers       = new ArrayList <>();
-        this.kolissionFlag   = false;
-        this.delayFlag       = false;
-//        this.backRect        = new Rectangle(0, 0, this.loader.getImage(Pictures.Desert).getWidth(null), this.loader.getImage(Pictures.Desert).getHeight(null));
+        this.backRect        = new Rectangle(0, -950, this.loader.getImage(Pictures.Game).getWidth(null), this.loader.getImage(Pictures.Game).getHeight(null));
     }
 
     /**
@@ -105,7 +99,7 @@ public class Manager{
         };
       this.managerTime.scheduleAtFixedRate(task, 0, this.intervallCreate);
       this.enemyTime.scheduleAtFixedRate(passsive, 0, this.intervallCreate * 50);
-      //this.dino.startDino();
+      this.hero.startHero();
     }
 
     /**
@@ -114,7 +108,7 @@ public class Manager{
     public void stop(){
         this.managerTime.cancel();
         this.enemyTime.cancel();
-        this.dino.killDino();
+        this.hero.killHero();
     }
 
     /**
@@ -122,58 +116,207 @@ public class Manager{
      */
     private void factEnemies(){
         this.raiseLevelCheck();
-        switch(rnd.nextInt(2)){
+        this.addBlueCar();
+        this.addRedCar();
+        this.addBlackCar();
+        this.addPolice();
+        if(this.level >= 10){
+            this.addBlueRacer();
+            this.addLilaRacer();
+            this.addNeoRacer();
+            this.addDredger();
+            this.addFireTruck();
+        }
+        if(this.level >= 15){
+            this.addBullet();
+            this.addAirplane();
+            this.addJeep();
+            this.addLightning();
+            this.addTank();
+        }
+    }
+    
+    private int factPos(){
+        int position = 0;
+        switch(rnd.nextInt(6)){
             case 0:
-                this.addSmall();
+                position = 70;
                 break;
-                
+            
             case 1:
-                if(this.level >= 10){
-                    this.addMiddle();
-                }
+                position = 310;
                 break;
              
             case 2:
-                if(this.level >= 15){
-                    this.addLarge();
-                }
+                position = 550;
+                break;
+               
+            case 3:
+                position = 775;
                 break;
                 
-            default:
+            case 4:
+                position = 1015;
+                break;
+                
+            case 5:
+                position = 1255;
                 break;
         }
+        return position;
     }
     
     /**
-     * produces a small enemy
+     * produces an Airplane
      */
-    private void addSmall(){
+    private void addAirplane(){
         switch(this.rnd.nextInt(10)){
             case 0: case 2: case 4: case 6:case 8:
-                enemies.add(factory.factFigure(Names.Small, this.gameVelocity));
+                enemies.add(factory.factFigure(Names.Airplane, this.gameVelocity, this.factPos()));
                 break;
         }
     }
     
     /**
-     * produces a middle enemy
+     * produces a BlackCar
      */
-    private void addMiddle(){
-            switch(rnd.nextInt(20)){
-                case 0: case 5: case 10: case 15: case 19:
-                    this.enemies.add(this.factory.factFigure(Names.Middle, this.gameVelocity));
-                    break;
-            }
+    private void addBlackCar(){
+        switch(this.rnd.nextInt(10)){
+            case 0: case 2: case 4: case 6:case 8:
+                enemies.add(factory.factFigure(Names.BlackCar, this.gameVelocity, this.factPos()));
+                break;
+        }
     }
     
     /**
-     * produces a large enemy
+     * produces a BlueCar
      */
-    private void addLarge(){
-        switch(rnd.nextInt(30)){
-            case 0: case 5: case 10: case 15: case 20: case 25:
-                    this.enemies.add(this.factory.factFigure(Names.Large, this.gameVelocity));
-                    break;
+    private void addBlueCar(){
+        switch(this.rnd.nextInt(10)){
+            case 0: case 2: case 4: case 6:case 8:
+                enemies.add(factory.factFigure(Names.BlueCar, this.gameVelocity, this.factPos()));
+                break;
+        }
+    }
+    
+    /**
+     * produces a BlueRacer
+     */
+    private void addBlueRacer(){
+        switch(this.rnd.nextInt(10)){
+            case 0: case 2: case 4: case 6:case 8:
+                enemies.add(factory.factFigure(Names.BlueRacer, this.gameVelocity, this.factPos()));
+                break;
+        }
+    }
+    
+    /**
+     * produces a Bullet
+     */
+    private void addBullet(){
+        switch(this.rnd.nextInt(10)){
+            case 0: case 2: case 4: case 6:case 8:
+                enemies.add(factory.factFigure(Names.Bullet, this.gameVelocity, this.factPos()));
+                break;
+        }
+    }
+    
+    /**
+     * produces a Dredger
+     */
+    private void addDredger(){
+        switch(this.rnd.nextInt(10)){
+            case 0: case 2: case 4: case 6:case 8:
+                enemies.add(factory.factFigure(Names.Dredger, this.gameVelocity, this.factPos()));
+                break;
+        }
+    }
+    
+    /**
+     * produces a FireTruck
+     */
+    private void addFireTruck(){
+        switch(this.rnd.nextInt(10)){
+            case 0: case 2: case 4: case 6:case 8:
+                enemies.add(factory.factFigure(Names.FireTruck, this.gameVelocity, this.factPos()));
+                break;
+        }
+    }
+    
+    /**
+     * produces a Bullet
+     */
+    private void addJeep(){
+        switch(this.rnd.nextInt(10)){
+            case 0: case 2: case 4: case 6:case 8:
+                enemies.add(factory.factFigure(Names.Jeep, this.gameVelocity, this.factPos()));
+                break;
+        }
+    }
+    
+    /**
+     * produces a Lightning
+     */
+    private void addLightning(){
+        switch(this.rnd.nextInt(10)){
+            case 0: case 2: case 4: case 6:case 8:
+                enemies.add(factory.factFigure(Names.Lightning, this.gameVelocity, this.factPos()));
+                break;
+        }
+    }
+    
+    /**
+     * produces a LilaRacer
+     */
+    private void addLilaRacer(){
+        switch(this.rnd.nextInt(10)){
+            case 0: case 2: case 4: case 6:case 8:
+                enemies.add(factory.factFigure(Names.LilaRacer, this.gameVelocity, this.factPos()));
+                break;
+        }
+    }
+    
+    /**
+     * produces a NeoRacer
+     */
+    private void addNeoRacer(){
+        switch(this.rnd.nextInt(10)){
+            case 0: case 2: case 4: case 6:case 8:
+                enemies.add(factory.factFigure(Names.NeoRacer, this.gameVelocity, this.factPos()));
+                break;
+        }
+    }
+    
+    /**
+     * produces a Police
+     */
+    private void addPolice(){
+        switch(this.rnd.nextInt(10)){
+            case 0: case 2: case 4: case 6:case 8:
+                enemies.add(factory.factFigure(Names.Police, this.gameVelocity, this.factPos()));
+                break;
+        }
+    }
+    
+    /**
+     * produces a RedCar
+     */
+    private void addRedCar(){
+        switch(this.rnd.nextInt(10)){
+            case 0: case 2: case 4: case 6:case 8:
+                enemies.add(factory.factFigure(Names.RedCar, this.gameVelocity, this.factPos()));
+                break;
+        }
+    }
+    
+    /**
+     * produces a Tank
+     */
+    private void addTank(){
+        switch(this.rnd.nextInt(10)){
+            case 0: case 2: case 4: case 6:case 8:
+                enemies.add(factory.factFigure(Names.Tank, this.gameVelocity, this.factPos()));
+                break;
         }
     }
     
@@ -196,25 +339,19 @@ public class Manager{
         this.killEnemies();
         for (int i = 0; i < this.enemies.size(); i++){
             this.enemies.get(i).move(this.gameVelocity);
-            if(this.enemies.get(i).getRect().y < 500){
-                this.enemies.get(i).getRect().y += this.gameVelocity * 2;
-            }
         }
-        if (this.dino.getRect().y < 780) {
-            this.dino.getRect().y += this.gameVelocity * 2;
+        if (this.backRect.y >= -10){
+            this.backRect.setLocation(0, -950);
         }
-        if (this.backRect.x <= -2500){
-            this.backRect.setLocation(0, 0);
-        }
-        this.backRect.x  -= this.gameVelocity;
+        this.backRect.y  += this.gameVelocity;
     }
 
     /**
      * dino getter
      * @return dino of the model
      */
-    public Hero getDino(){
-        return this.dino;
+    public Hero getHero(){
+        return this.hero;
     }
 
     /**
@@ -229,30 +366,28 @@ public class Manager{
      * forward method
      */
     public void forward(){
-        this.dino.move(15);
+        this.hero.move(25);
     }
     
     /**
      * reverse method
      */
     public void revers(){
-        this.dino.move(-15);
+        this.hero.move(-25);
     }
-
+    
     /**
-     * inits a jump in the model
+     * up method
      */
-    public void jump(){
-        if(!this.delayFlag){
-            this.delayFlag = true;
-            this.dino.jump();
-            this.delayJump.schedule(new TimerTask(){
-                @Override
-                public void run() {
-                    delayFlag = false;
-                }
-            }, 500);
-        }
+    public void up(){
+        this.hero.drive(-25);
+    }
+    
+    /**
+     * down method
+     */
+    public void down(){
+        this.hero.drive(25);
     }
 
     /**
@@ -270,7 +405,7 @@ public class Manager{
     private boolean kolission(){
         boolean kollission = false;
         for (int i = 0; i < enemies.size(); i++){
-            if(this.enemies.get(i).getRect().intersects(this.dino.getRect())){
+            if(this.enemies.get(i).getRect().intersects(this.hero.getRect())){
                 kollission = true;
             }
         }
@@ -278,10 +413,17 @@ public class Manager{
     }
 
     /**
-     * dino model does not move
+     * hero model does not move horizontal
      */
-    public void still() {
-        this.dino.move(0);
+    public void stillHori() {
+        this.hero.move(0);
+    }
+    
+    /**
+     * hero model does not move vertical
+     */
+    public void stillVert() {
+        this.hero.drive(0);
     }
 
     /**
@@ -297,19 +439,12 @@ public class Manager{
      */
     private void killEnemies(){
         for(int i = 0; i < this.enemies.size(); i++){
-            if(this.enemies.get(i).getRect().x < -100){
+            if(this.enemies.get(i).getRect().y > 1500){
                 this.score += 10;
                 this.enemies.remove(i);
             }
         }
         this.notifyObservers(States.LevelUpdate);
-    }
-    
-    /**
-     * quits the jump of the dino
-     */
-    public void quitJump(){
-        this.dino.resetZenit();
     }
 
     /**

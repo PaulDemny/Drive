@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import music.MP3Player;
+import pictures.ImageLoader;
 import pictures.Pictures;
 
 /**
@@ -19,8 +21,8 @@ public class Menue extends javax.swing.JFrame implements ActionListener{
 
     private ImageIcon icon;
     private JLabel dino;
-    private music.MP3Player player;
-    private pictures.ImageLoader loader;
+    private MP3Player player;
+    private ImageLoader loader;
     
     /**
      * Creates new form Menue
@@ -52,20 +54,28 @@ public class Menue extends javax.swing.JFrame implements ActionListener{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        spielen.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        spielen.setBackground(new java.awt.Color(51, 0, 51));
+        spielen.setFont(new java.awt.Font("Brush Script Std", 1, 48)); // NOI18N
+        spielen.setForeground(new java.awt.Color(255, 51, 153));
         spielen.setText("Spielen");
 
-        anleitung.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        anleitung.setBackground(new java.awt.Color(51, 0, 51));
+        anleitung.setFont(new java.awt.Font("Brush Script Std", 1, 48)); // NOI18N
+        anleitung.setForeground(new java.awt.Color(255, 51, 153));
         anleitung.setText("Anleitung");
 
-        schließen.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        schließen.setBackground(new java.awt.Color(51, 0, 51));
+        schließen.setFont(new java.awt.Font("Brush Script Std", 1, 48)); // NOI18N
+        schließen.setForeground(new java.awt.Color(255, 51, 153));
         schließen.setText("Schließen");
 
-        highscore.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        highscore.setBackground(new java.awt.Color(51, 0, 51));
+        highscore.setFont(new java.awt.Font("Brush Script Std", 1, 48)); // NOI18N
+        highscore.setForeground(new java.awt.Color(255, 51, 153));
         highscore.setText("Highscore");
 
         jLabel1.setFont(new java.awt.Font("Brush Script Std", 1, 300)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 102, 102));
+        jLabel1.setForeground(new java.awt.Color(255, 51, 153));
         jLabel1.setText("Drive");
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 

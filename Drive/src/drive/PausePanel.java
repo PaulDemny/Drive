@@ -46,13 +46,17 @@ public class PausePanel extends JPanel implements ActionListener{
         this.loader = ImageLoader.getInstance();
         this.setSize(1500, 1000);
         this.resume = new JButton("Resume Game");
+        this.resume.setForeground(new Color(255,51,153));
         this.resume.setFont(new Font(Font.MONOSPACED, Font.BOLD, 50));
         this.resume.setBounds(150, 700, 500, 200);
+        this.resume.setBackground(new Color(51,0,51));
         this.resume.addActionListener(this);
         this.add(resume);
         this.end = new JButton("Finish Game");
+        this.end.setForeground(new Color(255,51,153));
         this.end.setFont(new Font(Font.MONOSPACED, Font.BOLD, 50));
         this.end.setBounds(800, 700, 500, 200);
+        this.end.setBackground(new Color(51,0,51));
         this.end.addActionListener(this);
         this.add(end);
     }
@@ -63,12 +67,14 @@ public class PausePanel extends JPanel implements ActionListener{
      */
     @Override
     public void paintComponent(Graphics g) {
-        //g.drawImage(loader.getImage(Pictures.Normal), 0, 0, 1500, 1000, null);
-        g.setColor(Color.RED);
+        g.drawImage(loader.getImage(Pictures.Pause), 0, 0, 1500, 1000, null);
+        g.setColor(new Color(51,0,51));
+        g.fillRect(200, 510, 1050, 150);
+        g.setColor(new Color(255,51,153));
         g.setFont(new Font(Font.MONOSPACED, Font.BOLD, 200));
-        g.drawString("PAUSE", 470, 200);
+        g.drawString("PAUSE", 470, 180);
         g.setFont(new Font(Font.MONOSPACED, Font.BOLD, 70));
-        g.drawString("Level: ".concat(String.valueOf(this.manager.getLevel())).concat("   Score: ").concat(String.valueOf(this.manager.getScore())), 270, 500);
+        g.drawString("Level: ".concat(String.valueOf(this.manager.getLevel())).concat("   Score: ").concat(String.valueOf(this.manager.getScore())), 270, 600);
     }
 
     /**

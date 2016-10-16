@@ -59,12 +59,16 @@ public class GameOverPanel extends JPanel implements ActionListener{
         this.save = new JButton("Save Highscore");
         this.save.setBounds(150, 700, 500, 200);
         this.save.setFont(new Font(Font.MONOSPACED, Font.BOLD, 50));
+        this.save.setForeground(new Color(255, 51, 153));
+        this.save.setBackground(new Color(51,0,51));
         this.save.setBounds(150, 700, 500, 200);
         this.save.addActionListener(this);
         this.add(save);
         this.quit = new JButton("Quit");
         this.quit.setBounds(150, 700, 500, 200);
         this.quit.setFont(new Font(Font.MONOSPACED, Font.BOLD, 50));
+        this.quit.setForeground(new Color(255, 51, 153));
+        this.quit.setBackground(new Color(51,0,51));
         this.quit.setBounds(800, 700, 500, 200);
         this.quit.addActionListener(this);
         this.add(quit);
@@ -72,7 +76,7 @@ public class GameOverPanel extends JPanel implements ActionListener{
         this.name.setSize(500, 50);
         this.name.setLocation(500, 500);
         this.name.setBackground(Color.YELLOW);
-        this.name.setForeground(Color.BLUE);
+        this.name.setForeground(new Color(255, 51, 153));
         this.name.setHorizontalAlignment(JTextField.CENTER);
         this.name.setFont(new Font(Font.MONOSPACED, Font.BOLD, 30));
         this.add(name);
@@ -84,8 +88,8 @@ public class GameOverPanel extends JPanel implements ActionListener{
      */
     @Override
     public void paintComponent(Graphics g) {
-        //g.drawImage(loader.getImage(Pictures.Normal), 0, 0, 1500, 1000, null);
-        g.setColor(Color.RED);
+        g.drawImage(loader.getImage(Pictures.GameOver), 0, 0, 1500, 1000, null);
+        g.setColor(new Color(255, 15, 153));
         g.setFont(new Font(Font.MONOSPACED, Font.BOLD, 200));
         g.drawString("GAME OVER", 200, 200);
         g.setFont(new Font(Font.MONOSPACED, Font.BOLD, 70));

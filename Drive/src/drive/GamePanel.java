@@ -14,9 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.Timer;
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import main.IObserver;
 import model.structure.Hero;
 import model.structure.Figures;
 import pictures.Pictures;
@@ -31,10 +29,9 @@ import pictures.ImageLoader;
 public class GamePanel extends JPanel implements ActionListener, IObserver{
     
     private Timer gameTime;
-    private ImageIcon icon;
-    private Hero dino;
+    private Hero hero;
     private Manager manager;
-    private pictures.ImageLoader loader;
+    private ImageLoader loader;
     private List <Figures> enemies;
     private int level;
     private int score;
@@ -57,7 +54,7 @@ public class GamePanel extends JPanel implements ActionListener, IObserver{
         this.setSize(1500, 1000);
         this.setDoubleBuffered(true);
         this.setIgnoreRepaint(true);
-        this.manager.attach((IObserver) this);
+        this.manager.attach(this);
         this.update(States.LevelUpdate);
     }
 
@@ -68,20 +65,19 @@ public class GamePanel extends JPanel implements ActionListener, IObserver{
     @Override
     public void paintComponent(Graphics graph) {
         super.paintComponent(graph);
-//        Graphics2D plainMdl = (Graphics2D) graph;
-//        this.dino = this.manager.getDino();
-//        this.enemies = this.manager.getEnemies();
-//        plainMdl.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-//        plainMdl.drawImage(loader.getImage(Pictures.Desert), manager.getBackRect().x, manager.getBackRect().y, null);
-//        icon = loader.getImageIcon(Pictures.Hero);
-//        icon.paintIcon(this, plainMdl, dino.getRect().x - 60, dino.getRect().y);
-//        for (int i = 0; i < enemies.size(); i++){
-//            plainMdl.drawImage(loader.getImage(enemies.get(i).getImage()), enemies.get(i).getRect().x, enemies.get(i).getRect().y, null);
-//        }
-//        plainMdl.setFont(new Font(Font.MONOSPACED, Font.BOLD, 50));
-//        plainMdl.setColor(Color.red);
-//        plainMdl.drawString("Level: ".concat(String.valueOf(this.level)).concat("   Score: ").concat(String.valueOf(this.score)), 20, 50);
-//        plainMdl.dispose();
+        Graphics2D plainMdl = (Graphics2D) graph;
+        this.hero = this.manager.getHero();
+        this.enemies = this.manager.getEnemies();
+        plainMdl.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        plainMdl.drawImage(loader.getImage(Pictures.Game), manager.getBackRect().x, manager.getBackRect().y, null);
+        plainMdl.drawImage(loader.getImage(Pictures.Hero), this.hero.getRect().x, this.hero.getRect().y, null);
+        for (int i = 0; i < enemies.size(); i++){
+            plainMdl.drawImage(loader.getImage(enemies.get(i).getImage()), enemies.get(i).getRect().x, enemies.get(i).getRect().y, null);
+        }
+        plainMdl.setFont(new Font(Font.MONOSPACED, Font.BOLD, 50));
+        plainMdl.setColor(new Color(255, 51, 153));
+        plainMdl.drawString("Level: ".concat(String.valueOf(this.level)).concat("   Score: ").concat(String.valueOf(this.score)), 20, 50);
+        plainMdl.dispose();
    }
 
     /**

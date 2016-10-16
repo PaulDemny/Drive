@@ -10,5 +10,6 @@ package model.structure;
  * @author Paul
  */
 public enum Names {
-    Dino, AntiDino, Large, Middle, Names, Small
+    Hero, Airplane, BlackCar, BlueCar, BlueRacer, Bullet, Dredger, 
+    FireTruck, Jeep, Lightning, LilaRacer, NeoRacer, Police, RedCar, Tank
 }

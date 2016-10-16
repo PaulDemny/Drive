@@ -8,7 +8,7 @@ package drive;
 import java.awt.BorderLayout;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import main.IObserver;
+import drive.IObserver;
 import model.Manager;
 import model.States;
 import music.MP3Player;
@@ -74,7 +74,7 @@ public class Game extends javax.swing.JFrame implements IObserver{
                     painting.stopTimer();
                     getContentPane().removeAll();
                     getContentPane().add(pause, BorderLayout.CENTER);
-                    player = new MP3Player("music/files/.mp3");
+                    player = new MP3Player("music/files/Amsterdam.mp3");
                     player.play();
                     repaint();
                 }
@@ -87,16 +87,12 @@ public class Game extends javax.swing.JFrame implements IObserver{
                     manager.forward();
                 }
                 
-                if (key == KeyEvent.VK_SPACE || key == KeyEvent.VK_W || key == KeyEvent.VK_UP){
-                    manager.jump();
+                if (key == KeyEvent.VK_W || key == KeyEvent.VK_UP){
+                    manager.up();
                 }
                 
-                if (key == KeyEvent.VK_P){
-                    painting.stopTimer();
-                }
-                
-                if (e.getKeyCode() == KeyEvent.VK_R){
-                    painting.startTimer();
+                if (key == KeyEvent.VK_S || key == KeyEvent.VK_DOWN){
+                    manager.down();
                 }
             }
             
@@ -109,11 +105,12 @@ public class Game extends javax.swing.JFrame implements IObserver{
                 
                 key = e.getKeyCode();
                 
-                if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_A || key == KeyEvent.VK_D){
-                    manager.still();
+                if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A || key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D){
+                    manager.stillHori();
                 }
-                if(key == KeyEvent.VK_SPACE || key == KeyEvent.VK_W || key == KeyEvent.VK_UP){
-                    manager.quitJump();
+                
+                if (key == KeyEvent.VK_W || key == KeyEvent.VK_UP || key == KeyEvent.VK_S || key == KeyEvent.VK_DOWN){
+                    manager.stillVert();
                 }
             }
             

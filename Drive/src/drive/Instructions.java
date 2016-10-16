@@ -61,70 +61,77 @@ public class Instructions extends javax.swing.JFrame implements ActionListener{
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        close.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        close.setBackground(new java.awt.Color(51, 0, 51));
+        close.setFont(new java.awt.Font("Brush Script Std", 1, 48)); // NOI18N
+        close.setForeground(new java.awt.Color(255, 51, 153));
         close.setText("Close");
 
-        jLabel1.setFont(new java.awt.Font("Wide Latin", 3, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel1.setFont(new java.awt.Font("Brush Script Std", 3, 60)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 51, 153));
         jLabel1.setText("Bewegung");
 
-        jLabel4.setFont(new java.awt.Font("Wide Latin", 3, 60)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel4.setFont(new java.awt.Font("Brush Script Std", 1, 150)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 51, 153));
         jLabel4.setText("INSTRUCTIONS");
 
-        jLabel2.setFont(new java.awt.Font("Wide Latin", 3, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel2.setText("Durch gezielte Sprünge musst du den Kakteen ausweichen.");
+        jLabel2.setFont(new java.awt.Font("Brush Script Std", 3, 40)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 51, 153));
+        jLabel2.setText("Durch gezielte Möver musst du den Autos ausweichen.");
 
-        jLabel5.setFont(new java.awt.Font("Wide Latin", 3, 36)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel5.setFont(new java.awt.Font("Brush Script Std", 3, 60)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 51, 153));
         jLabel5.setText("Ziel des Spiels :");
 
-        jLabel6.setFont(new java.awt.Font("Wide Latin", 3, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel6.setFont(new java.awt.Font("Brush Script Std", 3, 40)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 51, 153));
         jLabel6.setText("Wenn du mit einem Hindernis kollidierst, hast du leider verloren.");
 
-        jLabel7.setFont(new java.awt.Font("Wide Latin", 3, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel7.setFont(new java.awt.Font("Brush Script Std", 3, 40)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 51, 153));
         jLabel7.setText("Ziel das Spiel ist es so lange wie möglich zu überleben.");
 
-        jLabel8.setFont(new java.awt.Font("Wide Latin", 3, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel8.setText("Springen");
+        jLabel9.setFont(new java.awt.Font("Brush Script Std", 3, 30)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 51, 153));
+        jLabel9.setText("Vorwärts mit: 'W' - Taste und Peiltaste 'hoch '");
 
-        jLabel9.setFont(new java.awt.Font("Wide Latin", 3, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel9.setText("Vorwärts mit: 'D' - Taste und Peiltaste 'rechts '");
-
-        jLabel10.setFont(new java.awt.Font("Wide Latin", 3, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel10.setFont(new java.awt.Font("Brush Script Std", 3, 50)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 51, 153));
         jLabel10.setText("Rückwärts");
 
-        jLabel11.setFont(new java.awt.Font("Wide Latin", 3, 24)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel11.setFont(new java.awt.Font("Brush Script Std", 3, 50)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 51, 153));
         jLabel11.setText("Vorwärts");
 
-        jLabel12.setFont(new java.awt.Font("Wide Latin", 3, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel12.setText("Rückwärts mit: 'A' - Taste und Peiltaste 'links '");
+        jLabel12.setFont(new java.awt.Font("Brush Script Std", 3, 30)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 51, 153));
+        jLabel12.setText("Rückwärts mit: 'S' - Taste und Peiltaste 'unten '");
 
-        jLabel13.setFont(new java.awt.Font("Wide Latin", 3, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel13.setText("Springen abbrechen mit: 'S' - Taste und Pfeiltaste 'unten'");
+        jLabel15.setFont(new java.awt.Font("Brush Script Std", 3, 50)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 51, 153));
+        jLabel15.setText("Rechts");
 
-        jLabel14.setFont(new java.awt.Font("Wide Latin", 3, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel14.setText("Springen mit: ''Leertaste', W' - Taste und Pfeiltaste 'oben'");
+        jLabel16.setFont(new java.awt.Font("Brush Script Std", 3, 30)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 51, 153));
+        jLabel16.setText("Rechts mit: 'D' - Taste und Peiltaste 'rechts'");
+
+        jLabel17.setFont(new java.awt.Font("Brush Script Std", 3, 50)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 51, 153));
+        jLabel17.setText("Links");
+
+        jLabel18.setFont(new java.awt.Font("Brush Script Std", 3, 30)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 51, 153));
+        jLabel18.setText("Links mit: 'A' - Taste und Peiltaste 'links'");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -141,33 +148,38 @@ public class Instructions extends javax.swing.JFrame implements ActionListener{
                     .addGroup(layout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(32, 32, 32)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel15)
+                                                    .addComponent(jLabel10)
+                                                    .addComponent(jLabel11))
+                                                .addGap(76, 76, 76))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel17)
+                                                .addGap(519, 519, 519))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(17, 17, 17)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel18)
+                                                    .addComponent(jLabel9)
+                                                    .addComponent(jLabel16)
+                                                    .addComponent(jLabel12))))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 465, Short.MAX_VALUE)
+                                .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel3)
-                            .addComponent(jLabel5)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel13))))
-                .addContainerGap(37, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
+                            .addComponent(jLabel5))))
+                .addGap(59, 59, 59))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(40, 40, 40)
                     .addComponent(jLabel4)
-                    .addContainerGap(535, Short.MAX_VALUE)))
+                    .addContainerGap(197, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,30 +194,35 @@ public class Instructions extends javax.swing.JFrame implements ActionListener{
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1)
-                .addGap(57, 57, 57)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel9)
-                .addGap(59, 59, 59)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel14)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel13)
-                .addGap(56, 56, 56)
-                .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(434, 434, 434)
+                        .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel16)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel18)))
+                .addContainerGap(218, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(41, 41, 41)
                     .addComponent(jLabel4)
-                    .addContainerGap(908, Short.MAX_VALUE)))
+                    .addContainerGap(995, Short.MAX_VALUE)))
         );
 
         pack();
@@ -255,15 +272,16 @@ public class Instructions extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 

@@ -10,5 +10,7 @@ package pictures;
  * @author Paul
  */
 public enum Pictures {
-    Menue, Highscore, Instruction, Pause, GameOver
+    Menue, Highscore, Instruction, Pause, GameOver, Game, Hero, Airplane, 
+    BlackCar, BlueCar, BlueRacer, Bullet, Dredger, FireTruck, Jeep, Lightning, 
+    LilaRacer, NeoRacer, Police, RedCar, Tank
 }

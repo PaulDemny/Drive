@@ -6,50 +6,35 @@
 package model.structure;
 
 import java.awt.Rectangle;
+import pictures.Pictures;
 /**
  * calss for dino object
  * @author Paul
  */
 public class Hero extends Figures{
    
-    private volatile int dinoVelocity;
-    private Thread jump;
+    private volatile int heroVertVelocity;
+    private volatile int heroHoriVelocity;
     private Thread walking;
-    private boolean zenit;
     private boolean movement;
 
     /**
-     * constructor for the dino
+     * constructor for the hero
      * @param rect Ractangle for the kollission
      * @param img image flag
      */
-    public Hero(Rectangle rect, pictures.Pictures img) {
+    public Hero(Rectangle rect, Pictures img) {
         super(rect, img);
-        this.dinoVelocity = 0;
+        this.heroVertVelocity = 0;
+        this.heroHoriVelocity = 0;
         this.movement = true;
-        this.startDino();
-        this.zenit = false;
     }
 
     /**
      * kills dino movement
      */
-    public void killDino(){
+    public void killHero(){
         this.movement = false;
-    }
-
-    /**
-     * Timertask of the jump
-     */
-    private void task(){
-        if(this.rect.y > 200 && this.rect.x < 1200){
-            this.rect.y -= 7;
-            this.rect.x += 1;
-            this.zenit = false;
-        }
-        else{
-            this.zenit = true;
-        }
     }
 
     /**
@@ -58,55 +43,41 @@ public class Hero extends Figures{
      */
     @Override
     public void move(int direction) {
-        this.dinoVelocity = direction;
+        this.heroHoriVelocity = direction;
     }
-
-    /**
-     * method creates new jump thread
-     */
-    public void jump(){
-        this.jump = new Thread(){
-            @Override
-            public void run() {
-                while(!zenit){
-                    task();
-                    try {
-                        Thread.sleep(3);
-                    } 
-                    catch (Exception ex) {
-                        System.err.println(ex.getMessage());
-                    }
-                }
-            }
-            
-        };
-        jump.start();
-        this.zenit = false;
+    
+    public void  drive(int direction){
+        this.heroVertVelocity = direction;
     }
     
     /**
-     * method stops jump
+     * inits hero
      */
-    public void resetZenit(){
-        this.zenit = true;
-    }
-    
-    /**
-     * inits dino
-     */
-    public void startDino(){
+    public void startHero(){
         this.walking = new Thread(){
             @Override
             public void run() {
                 while (movement) {
-                    if (dinoVelocity < 0){
-                        if (rect.x > 0){
-                            rect.x += dinoVelocity;
+                    if(heroVertVelocity > 0){
+                        if(rect.y + rect.height < 990){
+                            rect.y += heroVertVelocity;
                         }
                     }
-                    if (dinoVelocity > 0){
-                        if (rect.x < 1200){
-                            rect.x += dinoVelocity;
+                    if(heroVertVelocity < 0){
+                        if(rect.y > 40){
+                            rect.y += heroVertVelocity;
+                        }
+                    }
+                    if(heroHoriVelocity < 0){
+                        if(rect.x > 10){
+                            rect.x += heroHoriVelocity;
+                        }
+                    }
+                    if(heroHoriVelocity > 0){
+                        if(rect.x + rect.width < 1490){
+                            if(rect.x < 1490){
+                            rect.x += heroHoriVelocity;
+                        }
                         }
                     }
                     try {
